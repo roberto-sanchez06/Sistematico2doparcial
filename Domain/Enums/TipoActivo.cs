@@ -9,7 +9,7 @@ namespace Domain.Enums
         Edificio,
         Vehiculo,
         Maquinaria,
-        Mobilario,
+        Mobiliario,
         EquipoComputo,
     }
 }

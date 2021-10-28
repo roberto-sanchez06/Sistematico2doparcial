@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppCore.Interfaces;
+using Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +14,19 @@ namespace Sistematico
 {
     public partial class Form1 : Form
     {
-        
-        public Form1()
+        private IService model;   
+        public Form1(IService model)
         {
+            this.model = model;
             InitializeComponent();
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            FrmActivoFijo frm = new FrmActivoFijo();
+            frm.model = model;
+            frm.ShowDialog();
+            dataGridView1.DataSource = model.FIndAll();
         }
     }
 }

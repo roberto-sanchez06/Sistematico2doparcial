@@ -4,7 +4,7 @@ using System;
 
 namespace Infraestructure
 {
-    public class ActivoFijoModel : IModel<ActivoFijo>
+    public class ActivoFijoModel : IModel
     {
         private ActivoFijo[] activoFijos;
         public void Add(ActivoFijo t, ref ActivoFijo[] data)
@@ -30,6 +30,18 @@ namespace Infraestructure
         public ActivoFijo[] FIndAll()
         {
             return activoFijos;
+        }
+
+        public int GetLastId()
+        {
+            try
+            {
+                return (activoFijos == null) ? 0 : activoFijos[activoFijos.Length - 1].Id;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return 0;
+            }
         }
     }
 }

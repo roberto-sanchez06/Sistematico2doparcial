@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AppCore.Interfaces
 {
-    public interface IService<T>
+    public interface IService
     {
-        void Create(T t);
-        void Add(T t, ref T[] data);
-        T[] FIndAll();
+        void Create(ActivoFijo t);
+        void Add(ActivoFijo t, ref ActivoFijo[] data);
+        ActivoFijo[] FIndAll();
+        int GetLastId();
     }
 }
